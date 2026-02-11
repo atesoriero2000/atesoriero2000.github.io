@@ -1,0 +1,119 @@
+body {
+    background-color: #fce4ec; /* Light pink background */
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.screen {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1, h2, p {
+    color: #c2185b; /* Deep pink text */
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+button {
+    background-color: #ff4081; /* Bright pink button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #f50057; /* Darker pink on hover */
+    transform: scale(1.05);
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+#noButton {
+    position: absolute;
+}
+
+#hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff80ab; /* Lighter pink for hearts */
+    opacity: 0.7;
+    animation: float 10s infinite;
+    transform: rotate(45deg);
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff80ab;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(60deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
