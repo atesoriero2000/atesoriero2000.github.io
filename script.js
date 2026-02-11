@@ -1,52 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const screen1 = document.getElementById('screen1');
-    const screen2 = document.getElementById('screen2');
-    const screen3 = document.getElementById('screen3');
+    const screens = {
+        screen1: document.getElementById('screen1'),
+        screen2: document.getElementById('screen2'),
+        screen3: document.getElementById('screen3'),
+        screen4: document.getElementById('screen4'),
+        screen5: document.getElementById('screen5'),
+        screen6: document.getElementById('screen6'),
+        screen7: document.getElementById('screen7'),
+        finalScreen: document.getElementById('finalScreen')
+    };
 
-    const startButton = document.getElementById('startButton');
-    const middleButton = document.getElementById('middleButton');
-    const yesButton = document.getElementById('yesButton');
-    const noButton = document.getElementById('noButton');
+    const buttons = {
+        startButton: document.getElementById('startButton'),
+        continueButton2: document.getElementById('continueButton2'),
+        continueButton3: document.getElementById('continueButton3'),
+        continueButton4: document.getElementById('continueButton4'),
+        continueButton5: document.getElementById('continueButton5'),
+        whosThereButton: document.getElementById('whosThereButton'),
+        willWhoButton: document.getElementById('willWhoButton'),
+        yesButton: document.getElementById('yesButton'),
+        noButton: document.getElementById('noButton')
+    };
 
     const easterEggMessage = document.getElementById('easter-egg-message');
-
     const heartsContainer = document.getElementById('hearts-container');
 
-    // Screen transitions
-    startButton.addEventListener('click', () => {
-        screen1.style.display = 'none';
-        screen2.style.display = 'block';
+    function transition(fromScreen, toScreen) {
+        fromScreen.style.display = 'none';
+        toScreen.style.display = 'block';
+    }
+
+    buttons.startButton.addEventListener('click', () => transition(screens.screen1, screens.screen2));
+    buttons.continueButton2.addEventListener('click', () => transition(screens.screen2, screens.screen3));
+    buttons.continueButton3.addEventListener('click', () => transition(screens.screen3, screens.screen4));
+    buttons.continueButton4.addEventListener('click', () => transition(screens.screen4, screens.screen5));
+    buttons.continueButton5.addEventListener('click', () => transition(screens.screen5, screens.screen6));
+    buttons.whosThereButton.addEventListener('click', () => transition(screens.screen6, screens.screen7));
+    buttons.willWhoButton.addEventListener('click', () => transition(screens.screen7, screens.finalScreen));
+
+    buttons.yesButton.addEventListener('click', () => {
+        screens.finalScreen.innerHTML = '<h1>YAY! You made me the happiest person alive!</h1>';
     });
 
-    middleButton.addEventListener('click', () => {
-        screen2.style.display = 'none';
-        screen3.style.display = 'block';
+    buttons.noButton.addEventListener('mouseover', () => {
+        const x = Math.random() * (window.innerWidth - buttons.noButton.clientWidth);
+        const y = Math.random() * (window.innerHeight - buttons.noButton.clientHeight);
+        buttons.noButton.style.left = `${x}px`;
+        buttons.noButton.style.top = `${y}px`;
     });
 
-    // "Yes" button functionality
-    yesButton.addEventListener('click', () => {
-        screen3.innerHTML = '<h1>YAY! Now you get some otters</h1>';
-    });
-
-    // "No" button easter egg
-    noButton.addEventListener('mouseover', () => {
-        const x = Math.random() * (window.innerWidth - noButton.clientWidth);
-        const y = Math.random() * (window.innerHeight - noButton.clientHeight);
-        noButton.style.left = `${x}px`;
-        noButton.style.top = `${y}px`;
-    });
-
-    noButton.addEventListener('click', () => {
+    buttons.noButton.addEventListener('click', () => {
         easterEggMessage.textContent = "You found the easter egg! But you can't say no!";
         easterEggMessage.style.display = 'block';
     });
 
-    // Floating hearts
     function createHeart() {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.style.left = `${Math.random() * 100}vw`;
-        heart.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5-10 seconds
+        heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
         heartsContainer.appendChild(heart);
 
         heart.addEventListener('click', () => {
