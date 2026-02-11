@@ -19,6 +19,11 @@ body {
     animation: fadeIn 1.5s ease-in-out;
 }
 
+.intermediate-screen button {
+    opacity: 0;
+    pointer-events: none; /* Not clickable during animation */
+}
+
 h1, h2, p {
     color: #c2185b; /* Deep pink text */
 }
@@ -34,6 +39,23 @@ h2 {
 
 p {
     font-size: 1.5em;
+}
+
+img {
+    max-width: 10%;
+    height: auto;
+    margin: 10px;
+}
+
+.easter-egg-box {
+    position: fixed; /* Positions relative to the browser window */
+    bottom: 5%; /* Sets the desired distance from the bottom */
+    left: 50%; /* Moves the left edge to the horizontal center */
+    transform: translateX(-50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 button {
@@ -59,7 +81,7 @@ button:hover {
 }
 
 #noButton {
-    position: absolute;
+/*    position: absolute;*/
 }
 
 #hearts-container {
@@ -116,4 +138,24 @@ button:hover {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+.appearing-button {
+    animation: button-fade-in 1s forwards;
+    pointer-events: none; /* Initially not clickable */
+}
+
+@keyframes button-fade-in {
+    0% {
+        opacity: 0;
+        pointer-events: none; /* Not clickable during animation */
+    }
+    99% {
+        opacity: 0.99;
+        pointer-events: auto; /* */
+    }
+    100% {
+        opacity: 1;
+        pointer-events: auto; /* Clickable at the end */
+    }
 }
