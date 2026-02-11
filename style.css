@@ -56,6 +56,7 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
+    z-index: 1; /* Ensures the button is on top of other content */
 }
 
 button {
