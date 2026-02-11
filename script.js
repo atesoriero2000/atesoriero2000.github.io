@@ -80,9 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             buttons.noButton.style.position = 'absolute';
             buttons.noButton.removeEventListener('click', noButtonClickHandler);
+            buttons.noButton.addEventListener('click', moveButton);
             buttons.noButton.addEventListener('mouseover', moveButton);
             moveButton(); // Move it once right away
         }
+
         easterEggBox.style.display = 'flex';
         easterEggMessage.textContent = "You sure about that??";
         easterEggMessage.style.display = 'block';
