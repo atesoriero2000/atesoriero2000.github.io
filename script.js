@@ -50,15 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1900); // 1.5s delay to match screen fade-in
         }
     }
-    buttons.willWhoButton.addEventListener('click', () => transition(screens.screen1, screens.finalScreen));
+    //buttons.willWhoButton.addEventListener('click', () => transition(screens.screen1, screens.finalScreen));
 
-    //buttons.startButton.addEventListener('click', () => transition(screens.screen1, screens.screen2));
-    //buttons.continueButton2.addEventListener('click', () => transition(screens.screen2, screens.screen3));
-    //buttons.continueButton3.addEventListener('click', () => transition(screens.screen3, screens.screen4));
-    //buttons.continueButton4.addEventListener('click', () => transition(screens.screen4, screens.screen5));
-    //buttons.continueButton5.addEventListener('click', () => transition(screens.screen5, screens.screen6));
-    //buttons.whosThereButton.addEventListener('click', () => transition(screens.screen6, screens.screen7));
-    //buttons.willWhoButton.addEventListener('click', () => transition(screens.screen7, screens.finalScreen));
+    buttons.startButton.addEventListener('click', () => transition(screens.screen1, screens.screen2));
+    buttons.continueButton2.addEventListener('click', () => transition(screens.screen2, screens.screen3));
+    buttons.continueButton3.addEventListener('click', () => transition(screens.screen3, screens.screen4));
+    buttons.continueButton4.addEventListener('click', () => transition(screens.screen4, screens.screen5));
+    buttons.continueButton5.addEventListener('click', () => transition(screens.screen5, screens.screen6));
+    buttons.whosThereButton.addEventListener('click', () => transition(screens.screen6, screens.screen7));
+    buttons.willWhoButton.addEventListener('click', () => transition(screens.screen7, screens.finalScreen));
 
     buttons.yesButton.addEventListener('click', () => {
         screens.finalScreen.innerHTML = '<h1>YAY!!</h1>';
